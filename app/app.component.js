@@ -9,32 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var hero_service_1 = require('./hero.service');
 var AppComponent = (function () {
-    function AppComponent(heroService) {
-        this.heroService = heroService;
+    function AppComponent() {
         this.title = 'Tour of Heroes';
     }
-    AppComponent.prototype.getHeroes = function () {
-        var _this = this;
-        this.heroService.getHeroes().then(function (heroes) { return _this.heroes = heroes; });
-        // this.heroService.getHeroesSlowly().then(heroes => this.heroes = heroes);
-    };
-    ;
-    AppComponent.prototype.onSelect = function (hero) {
-        this.selectedHero = hero;
-    };
-    ;
-    AppComponent.prototype.ngOnInit = function () {
-        this.getHeroes();
-    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  \t\t<h1>{{title}}</h1>\n\t  \t<h2>My Heroes</h2>\n\t\t<ul class=\"heroes\">\n\t\t  \t<li *ngFor=\"let hero of heroes\"\n\t\t\t\t[class.selected]=\"hero === selectedHero\"\n\t\t\t\t(click)=\"onSelect(hero)\">\n\t\t\t\t<span class=\"badge\">{{hero.id}}</span> {{hero.name}}\n\t\t\t</li>\n\t\t</ul>\n  \t\t<my-hero-detail [hero]=\"selectedHero\"></my-hero-detail>\n  \t",
-            providers: [hero_service_1.HeroService]
+            template: "\n\t   <h1>{{title}}</h1>\n\t   <nav>\n\t     <a routerLink=\"/dashboard\">Dashboard</a>\n\t     <a routerLink=\"/heroes\">Heroes</a>\n\t   </nav>\n\t   <router-outlet></router-outlet>\n\t "
         }), 
-        __metadata('design:paramtypes', [hero_service_1.HeroService])
+        __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());
